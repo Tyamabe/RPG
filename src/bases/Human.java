@@ -19,6 +19,11 @@ public abstract class Human extends Living {
 		int damage = diceResult * getOffensive();
 		// 相手のHPをダメージ値だけ減らす ※ターゲットの表現方法がわからず後回し
 		int damagedHp = target.getHp() - damage;
+        if (damagedHp <= 0) {
+            damagedHp = 0; // HPが0未満にならないように調整
+            System.out.println("★" +target.getName() + "は倒れた！");
+        }
+        target.setHp(damagedHp);
 		// 自分の攻撃力を1だけ減らす ※自分の攻撃力の表現方法がわからず後回し
 		this.setOffensive(this.getOffensive() - 1);
 		// コンソールにステータスを表示

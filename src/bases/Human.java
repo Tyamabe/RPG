@@ -4,8 +4,6 @@ import utils.Dice;
 
 public abstract class Human extends Living {
 
-	public int damagedHp;
-
 	// コンストラクタ
 	public Human(String name, String weapon) {
 		// Livingクラスで定義したコンストラクタを利用する
@@ -21,6 +19,7 @@ public abstract class Human extends Living {
 		int damage = diceResult * getOffensive();
 		// ターゲットに与えるダメージを算出(ダメージを与えられた後のターゲットのHPを算出)
 		int damagedHp = target.getHp() - damage;
+		target.setHp(damagedHp);
 		// 自分の攻撃力を1だけ減らす
 		this.setOffensive(this.getOffensive() - 1);
 		// コンソールにステータスを表示

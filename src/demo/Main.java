@@ -67,16 +67,16 @@ public class Main {
 			
 			// 選ばれた人間が、選ばれたモンスターを攻撃
 			humanRep.attack(monsterRep);
-	        if (monsterRep.damagedHp <= 0) {
-	            monsterRep.damagedHp = 0; 
+	        if (monsterRep.getHp() <= 0) {
 	            System.out.println("★" + monsterRep.getName() + "は倒れた！");
 	        }
-	        monsterRep.setHp(monsterRep.damagedHp);
+	        monsterRep.setHp(monsterRep.getHp());
 			
 			// モンスターのHPが0以下になれば、モンスターは倒れ、そのモンスターをモンスターグループから削除
 			if(monsterRep.getHp() <= 0 ) {
 				monsters.remove(monsterRep);
 			}			
+			
 			// モンスターグループに誰もいなくなれば、人間グループの勝利
 			if(monsters.isEmpty()) {
 				System.out.println("\n[人間たちは勝利した！！]\n");
@@ -94,11 +94,10 @@ public class Main {
 			
 			// 選ばれたモンスターが、選ばれた人間を攻撃
 			monsterRep.attack(humanRep);
-	        if (humanRep.damagedHp <= 0) {
-	            humanRep.damagedHp = 0; 
+	        if (humanRep.getHp() <= 0) {
 	            System.out.println("★" + humanRep.getName() + "は倒れた！");
 	        }
-	        humanRep.setHp(humanRep.damagedHp);
+	        humanRep.setHp(humanRep.getHp());
 
 			// 人間のHPが0以下になれば、人間は倒れ、その人間をモンスターグループから削除
 			if(humanRep.getHp() <= 0) {
@@ -120,7 +119,6 @@ public class Main {
 
 		// 最後に各グループの状態を一覧表示してプログラム終了
 		showGroupInfos(humans, monsters);
-
 	}
 		
 

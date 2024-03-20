@@ -5,8 +5,6 @@ import utils.Dice;
 //モンスターを表現する抽象クラス
 public abstract class Monster extends Living {
 
-	public int damagedHp;
-
 	// コンストラクタ
 	public Monster(String name, String weapon) {
 		// Livingクラスで定義したコンストラクタを利用する

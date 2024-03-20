@@ -70,7 +70,6 @@ public class Main {
 	        if (monsterRep.getHp() <= 0) {
 	            System.out.println("★" + monsterRep.getName() + "は倒れた！");
 	        }
-	        monsterRep.setHp(monsterRep.getHp());
 			
 			// モンスターのHPが0以下になれば、モンスターは倒れ、そのモンスターをモンスターグループから削除
 			if(monsterRep.getHp() <= 0 ) {
@@ -97,7 +96,6 @@ public class Main {
 	        if (humanRep.getHp() <= 0) {
 	            System.out.println("★" + humanRep.getName() + "は倒れた！");
 	        }
-	        humanRep.setHp(humanRep.getHp());
 
 			// 人間のHPが0以下になれば、人間は倒れ、その人間をモンスターグループから削除
 			if(humanRep.getHp() <= 0) {

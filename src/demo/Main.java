@@ -14,6 +14,7 @@ import monsters.Slime;
 import utils.Dice;
 
 public class Main {
+
 	public static void main(String[] args) {
 		System.out.println("★★ ==== 戦いの開始だ！！ ==== ★★");
 
@@ -66,6 +67,11 @@ public class Main {
 			
 			// 選ばれた人間が、選ばれたモンスターを攻撃
 			humanRep.attack(monsterRep);
+	        if (monsterRep.damagedHp <= 0) {
+	            monsterRep.damagedHp = 0; 
+	            System.out.println("★" + monsterRep.getName() + "は倒れた！");
+	        }
+	        monsterRep.setHp(monsterRep.damagedHp);
 			
 			// モンスターのHPが0以下になれば、モンスターは倒れ、そのモンスターをモンスターグループから削除
 			if(monsterRep.getHp() <= 0 ) {
@@ -88,6 +94,11 @@ public class Main {
 			
 			// 選ばれたモンスターが、選ばれた人間を攻撃
 			monsterRep.attack(humanRep);
+	        if (humanRep.damagedHp <= 0) {
+	            humanRep.damagedHp = 0; 
+	            System.out.println("★" + humanRep.getName() + "は倒れた！");
+	        }
+	        humanRep.setHp(humanRep.damagedHp);
 
 			// 人間のHPが0以下になれば、人間は倒れ、その人間をモンスターグループから削除
 			if(humanRep.getHp() <= 0) {

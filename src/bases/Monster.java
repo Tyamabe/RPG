@@ -20,10 +20,8 @@ public abstract class Monster extends Living {
 		// ターゲットに与えるダメージを算出(ダメージを与えられた後のターゲットのHPを算出)
 		int damagedHp = target.getHp() - damage;
         target.setHp(damagedHp);
-		// 自分の攻撃力を1だけ減らす
-		this.setOffensive(this.getOffensive() - 1);
+		// モンスターは攻撃力が減らない！！
 		// コンソールにステータスを表示
 		System.out.println("「" + this.name + "」が「" + this.weapon + "」 で攻撃！「" + target.name + "」に" + damage + "のダメージを与えた。");
-		System.out.println("しかし自分の攻撃力も1減少した。");
 	}
 }
